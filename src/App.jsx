@@ -16,7 +16,7 @@ function getStatus(index) {
 }
 
   function calculateWPM() {
-  if (typed.length < characters.length) return null
+  if (!isFinished()) return null
   const elapsedMS = Date.now() - startTime.current
   const elapedMinutes = elapsedMS / 1000 / 60
   const wordsTyped = characters.length / 5
@@ -24,15 +24,26 @@ function getStatus(index) {
 }
  
   function calculateAccuracy() {
-    if (typed.length < characters.length) return null // not finished yet
+    if (!isFinished()) return null // not finished yet
     const correctCount = characters.filter((char, index) =>
       typed[index] === characters[index]).length
     return Math.round((correctCount / characters.length) * 100)
+}
+
+  function handleRestart() {
+    setTyped("")
+    startTime.current = null
+}
+
+  function isFinished() {
+    return typed.length >= characters.length
   }
+
 
   return (
     <>
       <input
+        disabled={isFinished()}
         value={typed}
         onChange={(e) => {
           if (!typed) {
@@ -52,6 +63,7 @@ function getStatus(index) {
       <p>{typed}</p>
       {calculateWPM() !== null && <p>WPM: {calculateWPM()}</p>}
       {calculateAccuracy() !== null && <p>Accuracy: {calculateAccuracy()}%</p>}
+      <button onClick={handleRestart}>Restart</button>
     </>
   )
 }
