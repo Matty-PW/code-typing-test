@@ -22,6 +22,13 @@ function getStatus(index) {
   const wordsTyped = characters.length / 5
   return Math.round(wordsTyped / elapedMinutes)
 }
+ 
+  function calculateAccuracy() {
+    if (typed.length < characters.length) return null // not finished yet
+    const correctCount = characters.filter((char, index) =>
+      typed[index] === characters[index]).length
+    return Math.round((correctCount / characters.length) * 100)
+  }
 
   return (
     <>
@@ -44,6 +51,7 @@ function getStatus(index) {
 
       <p>{typed}</p>
       {calculateWPM() !== null && <p>WPM: {calculateWPM()}</p>}
+      {calculateAccuracy() !== null && <p>Accuracy: {calculateAccuracy()}%</p>}
     </>
   )
 }
