@@ -1,0 +1,52 @@
+import { useState, useRef } from 'react'
+import "./App.css"
+
+
+function App() {
+  const [typed, setTyped] = useState("")
+  const snippet = "const x = 5;"
+  let characters = snippet.split("")
+  const startTime = useRef(null)
+
+  
+function getStatus(index) {
+  if (index >= typed.length) return "untyped"
+  if (typed[index] === characters[index]) return "correct"
+  else return "incorrect"
+}
+
+  function calculateWPM() {
+  if (typed.length < characters.length) return null
+  const elapsedMS = Date.now() - startTime.current
+  const elapedMinutes = elapsedMS / 1000 / 60
+  const wordsTyped = characters.length / 5
+  return Math.round(wordsTyped / elapedMinutes)
+}
+
+  return (
+    <>
+      <input
+        value={typed}
+        onChange={(e) => {
+          if (!typed) {
+            startTime.current = Date.now()
+          }
+            setTyped(e.target.value), console.log(startTime.current)
+      }}
+       />
+
+
+      <div>
+        {characters.map((char, index) =>
+          <span key={index} className={getStatus(index)}>{char}</span>
+        )}
+      </div>
+
+      <p>{typed}</p>
+      {calculateWPM() !== null && <p>WPM: {calculateWPM()}</p>}
+    </>
+  )
+}
+
+
+export default App
