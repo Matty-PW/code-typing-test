@@ -41,30 +41,33 @@ function getStatus(index) {
 
 
   return (
-    <>
-      <input
-        disabled={isFinished()}
-        value={typed}
-        onChange={(e) => {
-          if (!typed) {
-            startTime.current = Date.now()
-          }
-            setTyped(e.target.value), console.log(startTime.current)
-      }}
-       />
+    <div className="app-container">
+      
+      <div className="typing-area">
+        <input
+          className="hidden-input"
+          disabled={isFinished()}
+          value={typed}
+          onChange={(e) => {
+            if (!typed) {
+              startTime.current = Date.now()
+            }
+              setTyped(e.target.value), console.log(startTime.current)
+        }}
+        />
 
 
-      <div>
-        {characters.map((char, index) =>
-          <span key={index} className={getStatus(index)}>{char}</span>
-        )}
+        <div className="snippet">
+          {characters.map((char, index) =>
+            <span key={index} className={getStatus(index)}>{char}</span>
+          )}
+        </div>
       </div>
 
-      <p>{typed}</p>
       {calculateWPM() !== null && <p>WPM: {calculateWPM()}</p>}
       {calculateAccuracy() !== null && <p>Accuracy: {calculateAccuracy()}%</p>}
-      <button onClick={handleRestart}>Restart</button>
-    </>
+      <button className="restart-button" onClick={handleRestart}>Restart</button>
+    </div>
   )
 }
 
