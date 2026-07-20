@@ -80,9 +80,12 @@ function getStatus(index) {
         </div>
       </div>
 
+      <div className="stats">
       {calculateWPM() !== null && <p>WPM: {calculateWPM()}</p>}
       {calculateAccuracy() !== null && <p>Accuracy: {calculateAccuracy()}%</p>}
-      <button className="restart-button" onClick={handleRestart}>Restart</button>
+      </div>
+      
+      <button className="restart-button" onClick={handleRestart}>↻</button>
     </div>
   )
 }
