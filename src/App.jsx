@@ -4,7 +4,11 @@ import "./App.css"
 const snippets = [
   "const x = 5;",
   "function add(a, b) { return a + b }",
-  "let arr = [1, 2, 3];"
+  "let arr = [1, 2, 3];",
+  'print("hello world")',
+  "<title>This is html</title>",
+  "if x == 5:",
+  "if (x < 10) {"
 ]
 
 
@@ -49,7 +53,8 @@ function getStatus(index) {
 
   return (
     <div className="app-container">
-      
+
+      <h1 className="title">Code Typing Test</h1>
       <div className="typing-area">
         <input
           className="hidden-input"
@@ -66,7 +71,11 @@ function getStatus(index) {
 
         <div className="snippet">
           {characters.map((char, index) =>
-            <span key={index} className={getStatus(index)}>{char}</span>
+            <span key={index} 
+            className={`${getStatus(index)} ${index === typed.length ? "current" : ""}`}
+            >
+              {char}
+            </span>
           )}
         </div>
       </div>

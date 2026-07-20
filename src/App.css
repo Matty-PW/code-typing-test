@@ -1,5 +1,10 @@
+body {
+  background-color: #1f1f1f;
+  color: #cdd6f4;
+}
+
 .correct {
-  color: green;
+  color: white;
 }
 
 .incorrect {
@@ -7,7 +12,7 @@
 }
 
 .untyped {
-  color: grey;
+  color: #6c7086;
 }
 
 .app-container {
@@ -39,4 +44,28 @@
   width: 100%;
   height: 100%;
   opacity: 0;
+}
+
+.title {
+  font-family: monospace;
+  padding-bottom: 20px;
+}
+
+.current {
+  position: relative;
+}
+
+.current::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #58a6ff;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
