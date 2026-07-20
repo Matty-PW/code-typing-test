@@ -1,10 +1,16 @@
 import { useState, useRef } from 'react'
 import "./App.css"
 
+const snippets = [
+  "const x = 5;",
+  "function add(a, b) { return a + b }",
+  "let arr = [1, 2, 3];"
+]
+
 
 function App() {
   const [typed, setTyped] = useState("")
-  const snippet = "const x = 5;"
+  const [snippet, setSnippet] = useState(() => snippets[Math.floor(Math.random() * snippets.length)])
   let characters = snippet.split("")
   const startTime = useRef(null)
 
@@ -33,6 +39,7 @@ function getStatus(index) {
   function handleRestart() {
     setTyped("")
     startTime.current = null
+    setSnippet(snippets[Math.floor(Math.random() * snippets.length)])
 }
 
   function isFinished() {
