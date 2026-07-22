@@ -30,6 +30,26 @@ body {
   font-family: monospace;
   font-size: x-large;
   letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.gliding-cursor {
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #e1e4e8;
+  transition: left 0.1s ease;
+  animation: blink 1s step-end infinite;
+}
+
+.no-blink {
+  animation: none;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
 }
 
 .restart-button {
@@ -66,6 +86,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
+  z-index: 2;
 }
 
 .stats {
@@ -78,23 +99,4 @@ body {
 .title {
   font-family: monospace;
   padding-bottom: 20px;
-}
-
-.current {
-  position: relative;
-}
-
-.current::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2px;
-  height: 100%;
-  background-color: #e1e4e8;
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
 }

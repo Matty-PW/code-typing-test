@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect, useReducer } from 'react'
 import "./App.css"
 
 const snippets = [
@@ -17,6 +17,18 @@ function App() {
   const [snippet, setSnippet] = useState(() => snippets[Math.floor(Math.random() * snippets.length)])
   let characters = snippet.split("")
   const startTime = useRef(null)
+  const spanRefs = useRef([])
+  const [cursorLeft, setCursorLeft] = useState(0)
+  const [isTyping, setIsTyping] = useState(false)
+  const typingTimeout = useRef(null)
+
+
+  useEffect(() => {
+    const currentSpan = spanRefs.current[typed.length]
+    if (currentSpan) {
+      setCursorLeft(currentSpan.offsetLeft)
+    }
+  }, [typed])
 
   
 function getStatus(index) {
@@ -64,19 +76,27 @@ function getStatus(index) {
             if (!typed) {
               startTime.current = Date.now()
             }
-              setTyped(e.target.value), console.log(startTime.current)
+              setTyped(e.target.value)
+
+              setIsTyping(true)
+              clearTimeout(typingTimeout.current)
+              typingTimeout.current = setTimeout(() => {
+                setIsTyping(false)
+              }, 400)
         }}
         />
 
 
         <div className="snippet">
           {characters.map((char, index) =>
-            <span key={index} 
-            className={`${getStatus(index)} ${index === typed.length ? "current" : ""}`}
+            <span key={index}
+            ref={(e1) => (spanRefs.current[index] = e1)}
+            className={getStatus(index)}
             >
               {char}
             </span>
           )}
+          <div className={`gliding-cursor ${isTyping ? "no-blink" : ""}`} style={{ left: cursorLeft}}></div>
         </div>
       </div>
 
