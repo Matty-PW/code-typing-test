@@ -45,7 +45,6 @@ Then open the URL it prints in your browser.
 
 ## Future Improvements
 
-- Multi line custom code snippets
 - Real time WPM updates while typing
 - Leaderboard and stats stored in local storage
 - Language selection
