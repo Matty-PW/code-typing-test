@@ -14,9 +14,9 @@ A typing test for practicing code snippets, built with React and Vite. Type thro
 
 ## Tech Stack
 
-- [React](https://react.dev/) — UI and state management
-- [Vite](https://vite.dev/) — build tool and dev server
-- Plain CSS — colour theme inspired by the github dark theme
+- React - UI and state management
+- Vite - build tool and dev server
+- Plain CSS - colour theme inspired by the github dark theme
 
 ## Running Locally
 
