@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useReducer } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import "./App.css"
 
 const snippets = [

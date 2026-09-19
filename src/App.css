@@ -1,20 +1,20 @@
 body {
-  background-color: #24292e;
-  color: #e1e4e8;
+  background: var(--bg);
+  color: var(--text-h);
 }
 
 .correct {
-  color: #e1e4e8;
+  color: var(--text-h);
   transition: color 0.15s ease;
 }
 
 .incorrect {
-  color: #F97583;
+  color: var(--incorrect);
   transition: color 0.15s ease;
 }
 
 .untyped {
-  color: #6c7086;
+  color: var(--text);
   transition: color 0.15s ease;
 }
 
@@ -39,8 +39,8 @@ body {
   top: 0;
   width: 2px;
   height: 100%;
-  background-color: #e1e4e8;
-  transition: left 0.1s ease;
+  background-color: var(--text-h);
+  transition: left 0.1s ease, top 0.1s ease;
   animation: blink 1s step-end infinite;
 }
 
@@ -63,12 +63,12 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 10px;
-  background-color: #F97583;
+  background-color: var(--incorrect);
 }
 
 .restart-button:hover {
   transform: scale(1.1);
-  background-color: #f66a78;
+  filter: brightness(1.1);
 }
 
 .restart-button:active {
@@ -92,7 +92,7 @@ body {
 .stats {
   display: flex;
   gap: 24px;
-  margin: 20px, 0;
+  margin: 20px 0;
   font-size: 1.1rem;
 }
 
