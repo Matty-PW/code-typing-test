@@ -1,4 +1,6 @@
 # Code Typing Test
+[![CI](https://github.com/Matty-PW/preflight-ci/actions/workflows/ci.yml/badge.svg)](https://github.com/Matty-PW/preflight-ci/actions/workflows/ci.yml)
+
 
 A typing test for practicing code snippets, built with React and Vite. Type through randomly selected code snippets and get feedback on speed and accuracy.
 
