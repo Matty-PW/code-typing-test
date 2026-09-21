@@ -1,6 +1,6 @@
 # Code Typing Test
 [![CI](https://github.com/Matty-PW/code-typing-test/actions/workflows/deploy.yml/badge.svg)](https://github.com/Matty-PW/code-typing-test/actions/workflows/deploy.yml)
-[![Live Demo](https://img.shields.io/badge/Try_it_out-2EA44F?style=flat&logo=rocket&logoColor=white)](https://matty-pw.github.io/code-typing-test/)
+[![Live Demo](https://img.shields.io/badge/Try_it_out_live-2EA44F?style=flat&logo=rocket&logoColor=white)](https://matty-pw.github.io/code-typing-test/)
 
 A typing test for practicing code snippets, built with React and Vite. Type through randomly selected code snippets and get feedback on speed and accuracy.
 
