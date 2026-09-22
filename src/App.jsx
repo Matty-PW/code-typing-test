@@ -1,20 +1,12 @@
 import { useState, useRef, useEffect } from 'react'
 import "./App.css"
-
-const snippets = [
-  "const x = 5;",
-  "function add(a, b) { return a + b }",
-  "let arr = [1, 2, 3];",
-  'print("hello world")',
-  "<title>This is html</title>",
-  "if x == 5:",
-  "if (x < 10) {"
-]
+import { languages, pickSnippet } from './snippets'
 
 
 function App() {
   const [typed, setTyped] = useState("")
-  const [snippet, setSnippet] = useState(() => snippets[Math.floor(Math.random() * snippets.length)])
+  const [language, setLanguage] = useState("javascript")
+  const [snippet, setSnippet] = useState(() => pickSnippet(language))
   let characters = snippet.split("")
   const startTime = useRef(null)
   const spanRefs = useRef([])
@@ -55,7 +47,14 @@ function getStatus(index) {
   function handleRestart() {
     setTyped("")
     startTime.current = null
-    setSnippet(snippets[Math.floor(Math.random() * snippets.length)])
+    setSnippet(pickSnippet(language, snippet))
+}
+
+  function handleLanguageChange(lang) {
+    setLanguage(lang)
+    setTyped("")
+    startTime.current = null
+    setSnippet(pickSnippet(lang))
 }
 
   function isFinished() {
@@ -67,6 +66,17 @@ function getStatus(index) {
     <div className="app-container">
 
       <h1 className="title">Code Typing Test</h1>
+
+      <div className="languages">
+        {languages.map((lang) =>
+          <button key={lang}
+          className={lang === language ? "language active" : "language"}
+          onClick={() => handleLanguageChange(lang)}
+          >
+            {lang}
+          </button>
+        )}
+      </div>
       <div className="typing-area">
         <input
           className="hidden-input"

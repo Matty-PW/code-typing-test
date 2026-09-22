@@ -60,9 +60,9 @@ export const snippets = {
     `,
     code`
       for (let i = 1; i <= 15; i++) {
-        if (i % 15 === 0) console.log("FizzBuzz");
-        else if (i % 3 === 0) console.log("Fizz");
-        else if (i % 5 === 0) console.log("Buzz");
+        if (i % 15 === 0) console.log("Hello World");
+        else if (i % 3 === 0) console.log("Hello");
+        else if (i % 5 === 0) console.log("World");
         else console.log(i);
       }
     `,
@@ -403,25 +403,6 @@ export const snippets = {
         </body>
       </html>
     `,
-    code`
-      <article class="card">
-        <img src="cover.jpg" alt="Book cover" />
-        <h2>The Pragmatic Programmer</h2>
-        <p>From journeyman to master.</p>
-      </article>
-    `,
-    code`
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Score</th>
-        </tr>
-        <tr>
-          <td>Ada</td>
-          <td>98</td>
-        </tr>
-      </table>
-    `,
   ],
 
   css: [
@@ -443,19 +424,6 @@ export const snippets = {
       body {
         background: var(--bg);
         color: var(--text);
-      }
-    `,
-    code`
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
-      }
-
-      @media (max-width: 600px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
       }
     `,
     code`
