@@ -11,6 +11,7 @@ function App() {
   const startTime = useRef(null)
   const spanRefs = useRef([])
   const [cursorLeft, setCursorLeft] = useState(0)
+  const [cursorTop, setCursorTop] = useState(0)
   const [isTyping, setIsTyping] = useState(false)
   const typingTimeout = useRef(null)
 
@@ -19,6 +20,7 @@ function App() {
     const currentSpan = spanRefs.current[typed.length]
     if (currentSpan) {
       setCursorLeft(currentSpan.offsetLeft)
+      setCursorTop(currentSpan.offsetTop)
     }
   }, [typed])
 
@@ -78,7 +80,7 @@ function getStatus(index) {
         )}
       </div>
       <div className="typing-area">
-        <input
+        <textarea
           className="hidden-input"
           disabled={isFinished()}
           value={typed}
@@ -106,7 +108,7 @@ function getStatus(index) {
               {char}
             </span>
           )}
-          <div className={`gliding-cursor ${isTyping ? "no-blink" : ""}`} style={{ left: cursorLeft}}></div>
+          <div className={`gliding-cursor ${isTyping ? "no-blink" : ""}`} style={{ left: cursorLeft, top: cursorTop}}></div>
         </div>
       </div>
 

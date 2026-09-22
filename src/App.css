@@ -30,6 +30,7 @@ body {
   font-family: monospace;
   font-size: x-large;
   letter-spacing: 1px;
+  white-space: pre;
   position: relative;
   z-index: 1;
 }
@@ -38,7 +39,7 @@ body {
   position: absolute;
   top: 0;
   width: 2px;
-  height: 100%;
+  height: 1.2em;
   background-color: var(--text-h);
   transition: left 0.1s ease, top 0.1s ease;
   animation: blink 1s step-end infinite;
