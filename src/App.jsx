@@ -22,7 +22,7 @@ function App() {
       setCursorLeft(currentSpan.offsetLeft)
       setCursorTop(currentSpan.offsetTop)
     }
-  }, [typed])
+  }, [typed, snippet])
 
   
 function getStatus(index) {
