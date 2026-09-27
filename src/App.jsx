@@ -85,10 +85,22 @@ function getStatus(index) {
           disabled={isFinished()}
           value={typed}
           onChange={(e) => {
+            let newValue = e.target.value
+
+            if (newValue.length > typed.length && newValue.endsWith("\n")) {
+              let i = newValue.length
+              let indent = ""
+              while (snippet[i] === " ") {
+                indent += snippet[i]
+                i++
+              }
+              newValue = newValue + indent
+
+            }
             if (!typed) {
               startTime.current = Date.now()
             }
-              setTyped(e.target.value)
+              setTyped(newValue)
 
               setIsTyping(true)
               clearTimeout(typingTimeout.current)
