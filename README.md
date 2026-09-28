@@ -13,6 +13,7 @@ A typing test for practicing code snippets, built with React and Vite. Type thro
 - **Accuracy** - percentage of characters typed correctly shown on completion
 - **Invisible input overlay** - there is no text box, the snippets colours in as you type
 - **Restart** - resets with a new random snippet
+- **Language selection** - choose between python, javascript, typescript, rust, go, c, html and css snippets
 
 ## Tech Stack
 
@@ -49,4 +50,3 @@ Then open the URL it prints in your browser.
 
 - Real time WPM updates while typing
 - Leaderboard and stats stored in local storage
-- Language selection
