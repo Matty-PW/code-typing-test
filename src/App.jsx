@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import "./App.css"
 import { languages, pickSnippet } from './snippets'
+import githubIcon from "./assets/github.svg"
 
 
 function App() {
@@ -67,7 +68,16 @@ function getStatus(index) {
   return (
     <div className="app-container">
 
-      <h1 className="title">Code Typing Test</h1>
+      <h1 className="title">Code Typing Test
+        <a 
+        className="github-link"
+        href="https://github.com/Matty-PW/code-typing-test"
+        >
+        <img src={githubIcon} alt="GitHub" width={32} height={32} />
+      </a>
+      </h1>
+
+      
 
       <div className="languages">
         {languages.map((lang) =>

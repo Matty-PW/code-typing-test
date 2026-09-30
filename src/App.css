@@ -120,3 +120,8 @@ body {
   font-family: monospace;
   padding-bottom: 20px;
 }
+
+.github-link {
+  margin-left: 16px;
+  vertical-align: middle;
+}
