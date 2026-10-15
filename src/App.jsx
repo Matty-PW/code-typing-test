@@ -73,7 +73,7 @@ function getStatus(index) {
         className="github-link"
         href="https://github.com/Matty-PW/code-typing-test"
         >
-        <img src={githubIcon} alt="GitHub" width={32} height={32} />
+        <img src={githubIcon} alt="GitHub" width={48} height={48} />
       </a>
       </h1>
 
